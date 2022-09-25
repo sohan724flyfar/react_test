@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from "react";
 import Message from "./Message";
 import Progress from "./Progress";
+import { ReactCountryDropdown } from "react-country-dropdown";
+import "react-country-dropdown/dist/index.css";
 import axios from "axios";
 
 const FileUpload = () => {
@@ -55,6 +57,18 @@ const FileUpload = () => {
       setUploadPercentage(0);
     }
   };
+  const handleSelect = (country) => {
+    console.log(country);
+    /* returns the details on selected country as an object
+    	{
+          name: "United States of America", 
+          code: "US", 
+          capital: "Washington, D.C.", 
+          region: "Americas", 
+          latlng: [38, -97]
+        }
+    */
+  };
 
   return (
     <Fragment>
@@ -70,6 +84,9 @@ const FileUpload = () => {
           <label className="custom-file-label" htmlFor="customFile">
             {filename}
           </label>
+        </div>
+        <div>
+          <ReactCountryDropdown onSelect={handleSelect} countryCode="IN" />
         </div>
         <Progress percentage={uploadPercentage} />
         // Returns true if the request was successful.
