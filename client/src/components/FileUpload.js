@@ -1,4 +1,6 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useMemo, Component } from "react";
+import Select from "react-select";
+import countryList from "react-select-country-list";
 import Message from "./Message";
 import Progress from "./Progress";
 import { ReactCountryDropdown } from "react-country-dropdown";
@@ -11,6 +13,13 @@ const FileUpload = () => {
   const [uploadedFile, setUploadedFile] = useState({});
   const [message, setMessage] = useState("");
   const [uploadPercentage, setUploadPercentage] = useState(0);
+  const [value, setValue] = useState("");
+  const options = useMemo(() => countryList().getData(), []);
+
+  const changeHandler = (value) => {
+    setValue(value);
+    console.log(value);
+  };
 
   const onChange = (e) => {
     setFile(e.target.files[0]);
@@ -85,11 +94,14 @@ const FileUpload = () => {
             {filename}
           </label>
         </div>
-        <div>
+        {/* //todo test code */}
+        <Select options={options} value={value} onChange={changeHandler} />
+        {/* <div>
           <ReactCountryDropdown onSelect={handleSelect} countryCode="IN" />
-        </div>
+        </div> */}
+        {/* //!end */}
         <Progress percentage={uploadPercentage} />
-        // Returns true if the request was successful.
+        {/* // Returns true if the request was successful. */}
         <input
           type="submit"
           value="Upload"
