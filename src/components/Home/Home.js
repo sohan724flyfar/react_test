@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { Checkbox, FormControlLabel } from "@mui/material";
 
 const Home = () => {
   const style = {
@@ -16,8 +17,60 @@ const Home = () => {
     boxShadow: 24,
     p: 4,
   };
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [state, setState] = useState(false);
+  const [reissue, setReIssue] = useState([
+    { name: "sohan", age: "20" },
+    { name: "sohan", age: "20" },
+  ]);
+
+  const handleClick = (index) => {
+    const e = window.event;
+    const tempData = [...reissue];
+    tempData[index] = { ...tempData[index], state: e.target.checked };
+    setReIssue(tempData);
+  };
+  const data = reissue.filter((item) => item.state === true);
+  console.log(data);
+  console.log(reissue);
   return (
     <>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Action</th>
+        </tr>
+        <tbody>
+          {reissue.map((i, index) => (
+            <tr key={index}>
+              <td>{i.name}</td>
+              <td>{i.age}</td>
+              <td>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      onChange={() => {
+                        handleClick(index);
+                      }}
+                    />
+                  }
+                  label="Label"
+                />
+                {/* <Button
+                  onClick={() => {
+                    handleClick(index);
+                  }}
+                >
+                  Change
+                </Button> */}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
       <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={open}
