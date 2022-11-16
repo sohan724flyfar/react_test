@@ -1028,6 +1028,13 @@
     "core-js-pure" "^3.25.1"
     "regenerator-runtime" "^0.13.10"
 
+"@babel/runtime@^7.1.2":
+  "integrity" "sha512-mrzLkl6U9YLF8qpqI7TB82PESyEGjm/0Ly91jG575eVxMMlb8fYfOXFZIJ8XfLrJZQbm7dlKry2bJmXBUEkdFg=="
+  "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.20.1.tgz"
+  "version" "7.20.1"
+  dependencies:
+    "regenerator-runtime" "^0.13.10"
+
 "@babel/runtime@^7.10.2":
   "integrity" "sha512-mrzLkl6U9YLF8qpqI7TB82PESyEGjm/0Ly91jG575eVxMMlb8fYfOXFZIJ8XfLrJZQbm7dlKry2bJmXBUEkdFg=="
   "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.20.1.tgz"
@@ -5063,6 +5070,11 @@
     "pretty-error" "^4.0.0"
     "tapable" "^2.0.0"
 
+"html5-file-selector@^2.1.0":
+  "integrity" "sha512-pzf82T0d58BimSSNNXyj/uak7qC9N4wUwWNbamOHnYpPUN2/KJ47bXrbuXeTCbeKmNHyKegqeWt7Bl1excL5PA=="
+  "resolved" "https://registry.npmjs.org/html5-file-selector/-/html5-file-selector-2.1.0.tgz"
+  "version" "2.1.0"
+
 "htmlparser2@^6.1.0":
   "integrity" "sha512-gyyPk6rgonLFEDGoeRgQNaEUvdJ4ktTmmUh/h2t7s+M8oPpIPxgNACWa+6ESR57kXstwqPiCut0V8NRpcwgU7A=="
   "resolved" "https://registry.npmjs.org/htmlparser2/-/htmlparser2-6.1.0.tgz"
@@ -7571,6 +7583,13 @@
     "object-assign" "^4.1.1"
     "prop-types" "^15.6.2"
     "scheduler" "^0.19.1"
+
+"react-dropzone-uploader@^2.11.0":
+  "integrity" "sha512-1DpdPMGKP7vYL5SeCh13HCl+Xrz0F6jGrDPU5Tj2ojEIXGMCtfflrZhyXdr7u40IkQ+hYjAUEEtJW24SiY8WRA=="
+  "resolved" "https://registry.npmjs.org/react-dropzone-uploader/-/react-dropzone-uploader-2.11.0.tgz"
+  "version" "2.11.0"
+  dependencies:
+    "@babel/runtime" "^7.1.2"
 
 "react-error-overlay@^6.0.11":
   "integrity" "sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg=="
