@@ -57,9 +57,11 @@ export const SuperHeroesPage = () => {
         </Box>
         <Box>
           <Typography>Super Hero Page</Typography>
-          {data.map((item) => (
-            <Box key={item.id}>{item.name}</Box>
-          ))}
+          {isLoading ? (
+            data.map((item) => <Box key={item.id}>{item.name}</Box>)
+          ) : (
+            <Typography>Loading...</Typography>
+          )}
         </Box>
       </Container>
     </Box>
