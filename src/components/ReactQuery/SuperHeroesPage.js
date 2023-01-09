@@ -12,6 +12,7 @@ import { Container } from "@mui/system";
 export const SuperHeroesPage = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
   const [data, setData] = useState([]);
   useEffect(() => {
     setIsLoading(false);
@@ -19,6 +20,10 @@ export const SuperHeroesPage = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
+        setIsLoading(true);
+      })
+      .catch((err) => {
+        setError(err.message);
         setIsLoading(true);
       });
   }, []);
@@ -44,13 +49,13 @@ export const SuperHeroesPage = () => {
                 home
               </Button>
               <Button onClick={() => navigate("/super-hero")} color="inherit">
-                RQ Super Heros
+                Super Heros
               </Button>
               <Button
                 onClick={() => navigate("/rq-super-heros")}
                 color="inherit"
               >
-                Super Heros
+                RQ Super Heros
               </Button>
             </Toolbar>
           </AppBar>
@@ -58,7 +63,11 @@ export const SuperHeroesPage = () => {
         <Box>
           <Typography>Super Hero Page</Typography>
           {isLoading ? (
-            data.map((item) => <Box key={item.id}>{item.name}</Box>)
+            !error ? (
+              data.map((item) => <Box key={item.id}>{item.name}</Box>)
+            ) : (
+              <Typography>{error}</Typography>
+            )
           ) : (
             <Typography>Loading...</Typography>
           )}

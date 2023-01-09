@@ -13,7 +13,7 @@ import axios from "axios";
 
 export const RQSuperHeroesPage = () => {
   const navigate = useNavigate();
-  const { isLoading, data } = useQuery("super-heros", () => {
+  const { isLoading, data, isError, error } = useQuery("super-heros", () => {
     return axios.get("http://localhost:4000/superheroes");
   });
   return (
