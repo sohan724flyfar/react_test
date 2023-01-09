@@ -1,0 +1,24 @@
+:root {
+  --primary-color: #ffa84d;
+  --primary-rgb: 255, 168, 77;
+  --secondary-color: #2564b8;
+  --secondary-rgb: 37, 100, 184;
+  --third-rgb: 34, 34, 34;
+  --white: #ffffff;
+  --gray: #c7c7c7;
+  --white-rgb: 255, 255, 255;
+  --black: #000;
+  --sabre: #ff0000;
+  /* --sabre: #ffffff; */
+  /* --galileo: #0b8634; */
+  --galileo: #ffffff;
+  --flyhub: #4169e1;
+  /* --flyhub: #ffffff; */
+  --mateBlack: #222222;
+  --tomato-color: #ff4a4a;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
