@@ -1,4 +1,10 @@
 import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+
 import { QueryClientProvider, QueryClient } from "react-query";
 import FileUpload from "./components/FileUpload";
 import PreFillForm from "./components/PreFillForm";
@@ -15,6 +21,33 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              News
+            </Typography>
+            <Button onClick={() => navigate("/rq-home")} color="inherit">
+              home
+            </Button>
+            <Button onClick={() => navigate("/super-hero")} color="inherit">
+              RQ Super Heros
+            </Button>
+            <Button onClick={() => navigate("/rq-super-heros")} color="inherit">
+              Super Heros
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/rq-home" element={<ReactQuery />} />
