@@ -22,17 +22,18 @@ export const SuperHeroesPage = () => {
         setIsLoading(true);
       });
   }, []);
+  if (isLoading)
+    <>
+      <Typography>Loading...</Typography>
+    </>;
   return (
     <Box>
       <Container>
-        
         <Box>
           <Typography>Super Hero Page</Typography>
-          {isLoading ? (
-            data.map((item) => <Box key={item.id}>{item.name}</Box>)
-          ) : (
-            <Typography>Loading...</Typography>
-          )}
+          {data.map((item) => (
+            <Box key={item.id}>{item.name}</Box>
+          ))}
         </Box>
       </Container>
     </Box>

@@ -1,10 +1,19 @@
-import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  Outlet,
+  useNavigate,
+  NavLink,
+} from "react-router-dom";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
 import { QueryClientProvider, QueryClient } from "react-query";
 import FileUpload from "./components/FileUpload";
 import PreFillForm from "./components/PreFillForm";
@@ -36,15 +45,38 @@ const App = () => (
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               News
             </Typography>
-            <Button onClick={() => navigate("/rq-home")} color="inherit">
+            <NavLink
+              to="/rq-home"
+              style={{
+                textDecoration: "none",
+                color: "white",
+                textTransform: "uppercase",
+                margin: "0px 5px",
+              }}
+            >
               home
-            </Button>
-            <Button onClick={() => navigate("/super-hero")} color="inherit">
+            </NavLink>
+            <NavLink
+              to="/super-hero"
+              style={{
+                textDecoration: "none",
+                color: "white",
+                textTransform: "uppercase",
+                margin: "0px 5px",
+              }}
+            >
               RQ Super Heros
-            </Button>
-            <Button onClick={() => navigate("/rq-super-heros")} color="inherit">
+            </NavLink>
+            <NavLink
+              to="/rq-super-heros"
+              style={{
+                textDecoration: "none",
+                color: "white",
+                textTransform: "uppercase",
+              }}
+            >
               Super Heros
-            </Button>
+            </NavLink>
           </Toolbar>
         </AppBar>
       </Box>
