@@ -33,8 +33,8 @@ const Home = () => {
     setReIssue(tempData);
   };
   const data = reissue.filter((item) => item.state === true);
-  console.log(data);
-  console.log(reissue);
+  // console.log(data);
+  // console.log(reissue);
   return (
     <>
       <table>

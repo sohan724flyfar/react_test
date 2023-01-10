@@ -12,6 +12,7 @@ import { Container } from "@mui/system";
 export const SuperHeroesPage = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
   const [data, setData] = useState([]);
   useEffect(() => {
     setIsLoading(false);
@@ -19,6 +20,10 @@ export const SuperHeroesPage = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
+        setIsLoading(true);
+      })
+      .catch((err) => {
+        setError(err.message);
         setIsLoading(true);
       });
   }, []);
