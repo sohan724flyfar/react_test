@@ -15,6 +15,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import FileUpload from "./components/FileUpload";
 import PreFillForm from "./components/PreFillForm";
 import DynamicForm from "./components/DynamicForm/DynamicForm";
@@ -65,7 +66,7 @@ const App = () => (
                 margin: "0px 5px",
               }}
             >
-              RQ Super Heros
+              Super Heros
             </NavLink>
             <NavLink
               to="/rq-super-heros"
@@ -75,7 +76,7 @@ const App = () => (
                 textTransform: "uppercase",
               }}
             >
-              Super Heros
+              RQ Super Heros
             </NavLink>
           </Toolbar>
         </AppBar>
@@ -90,6 +91,7 @@ const App = () => (
         <Route path="prefillform" element={<PreFillForm />} />
       </Routes>
     </BrowserRouter>
+    <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
   </QueryClientProvider>
 );
 

@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
 import { Container } from "@mui/system";
+import axios from "axios";
 
 export const SuperHeroesPage = () => {
   const navigate = useNavigate();
@@ -15,22 +16,23 @@ export const SuperHeroesPage = () => {
   const [error, setError] = useState("");
   const [data, setData] = useState([]);
   useEffect(() => {
-    setIsLoading(false);
-    fetch("http://localhost:4000/superheroes")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setIsLoading(true);
+    axios
+      .get("http://localhost:4000/superheroes")
+      .then((res) => {
+        setData(res.data);
+        setIsLoading(false);
       })
       .catch((err) => {
         setError(err.message);
-        setIsLoading(true);
+        setIsLoading(false);
       });
   }, []);
-  if (isLoading)
-    <>
-      <Typography>Loading...</Typography>
-    </>;
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
+  if (error) {
+    return <h2>{error}</h2>;
+  }
   return (
     <Box>
       <Container>
